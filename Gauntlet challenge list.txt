@@ -1,0 +1,98 @@
+Gauntlet challenge list
+
+---challenges---
+Share the Health – Kill Enemies to Regenerate Depleting Health
+Tower Defense– Moving Causes Damage
+Eat and Run – All Enemies are Sprinting
+Bursting With Excitement – Players Can Only Use <weapon>
+Brittle – Complete the Round with a Limited Number of Hits Across All Players
+Bear A Grudge – Hunt down and Open the Mystery Box 6 Times this Round (Firesale Disabled)
+No Gen – No Health Regeneration
+Anywhere but WTF? – Players Randomly Teleport. Complete the Round Under the Time Limit
+Make It Rain – Take Damage While you Have Over 5000 Points
+Shock and Awe – Get 55 Trap Kills and Survive 5:55
+Walled In – Make 5 Unique Wall Buys
+CQZ – Zombies Can Only Be Damaged in Close Quarters
+Double Trouble – Enemies do Double Damage
+Conference Call – Defend the Conference Room 
+Hat Trick – Kill Zombies with 3 Unique Weapons
+Piss Around – Use Unpacked Pistols Only
+Stay Down! – Weapons Can Only be Used While Prone
+Ranger – Move Less Than 100m During the Round
+Muzzle Flesh – Zombies Only Appear When You are Shooting
+Debit or Credit? – Kills Drain Points. Damage and Death Points are Disabled for the Round
+Perk Drunk – More Perks, More Blurry Vision
+Stock Crash – All Weapons Only Have One Ammo Clip
+Re-Roll – Active Perks are Randomly Replaced. Perk Altars are Disabled for the Round
+Bankrupt – Have Less Than 1000 Points at the End of the Round
+Quick Kills – Melee Kill All Zombies within the Time Limit
+Turret Mode – Players are Locked in Place, Unless They are Downed
+Loaded – End the Round with Guns and Equipment at Full Ammo
+Half Speed – Players’ Movement Speeds are Halved. Sprinting and Sliding are Disabled
+Shopaholic – Buy Something Every 20 Seconds
+Spartoi Scramble –No Headshot Kills Allowed
+Stop Drop and Roll – Go Prone to Stop Random Damage
+Blindsided – Players are Randomly Blinded
+Make It Rain – Take Damage If You Have Over 5000 Points
+Trial of the Gods – Survive the Round
+Run Away! Run Away! – Kill All Zombies within the Time Limit. Zombies Will Run Away From Players
+Shots! Shots! Shots! – Weapon Fire Drains Points
+Farewell to Arms – Kill Zombies with 10 Different Weapons or Equipment
+open for buisness - must open all doors and clear all paths by end of this round
+gilded rage - possess two fully packed weapons at the end of this round
+duck... - weapons are only usable while crouched
+...and cover - players can only use weapons while Prone
+pack your bags - each player must possess a packed weapon by end of this round
+This. Is. Nuketown - survive round using only nuke powerups
+headhunter - all mannequin heads need to be removed by end of this round
+fist full of bullets - melee kills fill your weapon's mag. no ammo reserves
+shocking spree - each player must make 6 unique wall buys by end of this round
+backyard barbecue - defend the yellow house backyard
+Unsinkable - Survive the Round without taking Damage.
+Shall We Dance? - Use Melee Only.
+Perk Up - Survive the Round with At Least One Perk Active.
+Shielded - Possess the Shield at the End of the Round.
+Closed for Business - All Buys are Disabled.
+Mystery Shopper - Obtain a Weapon From the Mystery Box.
+Door Man - Open all Doors in the Map.
+Crawling With Zombies - Survive a Wave of Crawling Dead.
+Perk Allergy - Complete the Round with Zero Perks.
+Head Games - Kill Zombies with Headshots Only.
+Powerless - Avoid All Powerups.
+Missing the Point(s) - Damage to Players Causes Points Drain.
+Press Start - Reset To Your Starting Weapon.
+Unhealthy - Replenish Health Drain with Zombie Kills.
+Fast Times - Complete the Round Before the Timer Runs Out.
+H.eads U.p D.eactivated - No HUD.
+Unpacked - Pack-A-Punch Weapons are Disabled.
+What's the Point - Taking Any Damage Drains All of Your Points.
+Speed Demons - Survive an Onslaught of Sprinters.
+Straight Shooter - Missed Shots hurt. 
+Creeper - Weapons and Elixirs are only usable while crouched.
+Shoot From the Hip - Hip Fire Only.
+Slowpoke - Sprinting is Disabled.
+Pack It In - Pack-a-Punch Two Different Weapons during the Round.
+Board to Death - Earn 1000 Points from Boarding Openings.
+Perks of the Job - Complete the Round with 3 Active Perks.
+IX Minutes of Hell - Survive for Nine Minutes.
+Feeling Trapped - Kill Zombies with Traps.
+Weapon Roulette - Your Guns Randomly Swap, and All Buys Are Disabled.
+Perk-o-Late - End the Round will all 4 Perks.
+Jump Shot - Players can only attack while jumping.
+Load of Nonsense - Weapons must be reloaded after every shot if ammo is available.
+A.iming D.oes S.ting - ADS causes damage.
+Helluva Appetite - At least one player must posess the hell's retriever at the end of the round.
+Rooftop Party - Defend the roof.
+Zombie Noir - It's black and white.
+Brain Soup - Get at least 20 spoon kills by round end. unrelated weapons are locked out.
+Snooze you lose - Sprint to avoid point drain. Slower movement drains points faster.
+Oh My Gat! - Forge the acid gat during the round.
+Sacrificial Packed - Sacrifice 2 weapons to the pack machine.
+Shower Showdown - Defend the showers.
+Prone to Regeneration - Health regeneration only works while prone.
+Pointless - Points are reset to 0.
+Lockdown - All doors are sealed for the round.
+Stand Firm - Defend the infirmary.
+Mobster - Use the M1927 only.
+I'm Out - All ammo is reset to 0.
+Who let the hounds out? - Survive a hellhound onslaught.
