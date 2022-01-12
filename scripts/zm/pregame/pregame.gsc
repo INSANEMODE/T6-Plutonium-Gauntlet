@@ -184,22 +184,17 @@ spawnIfRoundOne() //spawn player
 {
 	level endon( "end_game" );
 	self endon( "disconnect" );
-	print("entered spawnIfRoundOne()");
-	print(self.name + " firstspawn == " + self.firstspawn);
-	print("sessionstate: " + self.sessionstate);
+
 	if ( self.sessionstate != "playing" && self.firstspawn == 1)
 	{
 		wait 1;
 		self tell("Get ready to be spawned!");
 
 	}
-	else
-	{
-		print("spawnifroundone() else 1: sessionstate: " + self.sessionstate);
-	}
+
 
 	wait 5;
-	if ( self.sessionstate != "playing" && self.firstspawn == 1) //level.round_number == 1 )
+	if ( self.sessionstate != "playing" && self.firstspawn == 1) 
 	{
 		self tell("spawning!");
 		self [[ level.spawnplayer ]]();
@@ -207,8 +202,5 @@ spawnIfRoundOne() //spawn player
 			thread maps\mp\zombies\_zm::refresh_player_navcard_hud();
 		
 	}
-	else
-	{
-		print("spawnifroundone() else 2: sessionstate: " + self.sessionstate);
-	}
+
 }
