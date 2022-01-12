@@ -16,7 +16,7 @@ main()
 
 init()
 {
-    initPlayerConnectionTracker();
+    initPlayerConnectionArrays();
     onplayerconnect_callback(::player_connected());
 }
 
@@ -111,7 +111,7 @@ onallplayersready() //checked changed to match cerberus output
 }
 
 
-playerConnectionTracker()
+initPlayerConnectionArrays()
 {
     level.firstspawn = [];
 	level.firstconnect_stats = [];
