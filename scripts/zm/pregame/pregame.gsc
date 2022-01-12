@@ -32,8 +32,9 @@ onPlayerConnect()
     if(level.players.size > 1)
     self.sessionstate = "spectator";
     self is_first_spawn();
-    self spawnIfRoundOne();
     self thread onPlayerSpawned();
+    self spawnIfRoundOne();
+
 }
 
 onPlayerSpawned()
