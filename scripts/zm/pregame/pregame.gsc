@@ -26,8 +26,8 @@ init()
 
 replacements()
 {
-    // replacefunc(maps/mp/zombies/_zm::onallplayersready, ::onallplayersready);
-	// replacefunc(maps/mp/zombies/_zm::start_zombie_logic_in_x_sec, ::start_zombie_logic_in_x_sec);
+    replacefunc(maps/mp/zombies/_zm::onallplayersready, ::onallplayersready);
+	replacefunc(maps/mp/zombies/_zm::start_zombie_logic_in_x_sec, ::start_zombie_logic_in_x_sec);
 
 
 
@@ -211,7 +211,66 @@ pregame_hud() //checked matches bo3 _globallogic.gsc within reason
 
 //////////Replaced functions start//////////
 
+onallplayersready() //checked changed to match cerberus output
+{
+	players = get_players();
+	while ( players.size == 0 )
+	{
+		players = get_players();
+		wait 0.1;
+	}
 
+    player_count_actual = 0;
+    while ( getnumconnectedplayers() < getnumexpectedplayers() || player_count_actual != getnumexpectedplayers() )
+    {
+        players = get_players();
+        player_count_actual = 0;
+        i = 0;
+        while ( i < players.size )
+        {
+            players[ i ] freezecontrols( 1 );
+            if ( players[ i ].sessionstate == "playing" )
+            {
+                player_count_actual++;
+            }
+            i++;
+        }   
+        wait 0.1;
+    }
+	setinitialplayersconnected(); 
+	flag_set( "initial_players_connected" );
+	while ( !aretexturesloaded() )
+	{
+		wait 0.05;
+	}
+
+	thread start_zombie_logic_in_x_sec(5);
+
+	fade_out_intro_screen_zm( 5, 1.5, 1 );
+}
+start_zombie_logic_in_x_sec( seconds ) //checked matches cerberus output
+{
+	flag_clear( "spawn_zombies" );
+	iprintln("Starting Zombie Logic in " + seconds + " seconds");
+
+	timeout = 0;
+	players = get_players();
+	while(timeout < 30)
+	{
+		players = get_players();
+		if(players.size == 4)
+		{
+			break;
+		}
+		wait 1;
+		timeout++;
+
+	}
+	flag_set( "player_quota" );
+	wait seconds;
+	flag_set( "start_zombie_round_logic" );
+	flag_set( "spawn_zombies" );
+}
 
 
 //////////Replaced functions end//////////
