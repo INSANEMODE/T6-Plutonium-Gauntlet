@@ -165,13 +165,13 @@ LateGameKick()
 
 		if(isdefined(level.firstconnect_stats[self.guid]))
 		{
-			if((level.firstconnect_stats[self.guid].round_start == 1)
+			if(level.firstconnect_stats[self.guid].round_start == 1)
 			{
                 return;
 			}
 			else
 			{
-				kick(self getentitynumber())
+				kick(self getentitynumber());
 			}
 
 		}
