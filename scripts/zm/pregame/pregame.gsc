@@ -40,6 +40,7 @@ onPlayerConnect()
     self is_first_spawn();
     self thread onPlayerSpawned();
     self spawnIfRoundOne();
+	self thread Lategamekick();
 
 }
 
@@ -52,7 +53,7 @@ onPlayerSpawned()
         self waittill( "spawned_player" );
         if(is_true(self.firstspawn))
         {
-            self thread Lategamekick();
+
 
         }
         self.firstspawn = 0;
@@ -89,6 +90,7 @@ firstconnect_stats()
 
 is_first_spawn()
 {
+	self endon("disconnect");
 
 	if(!isinarray(level.firstspawn, self.guid))
 	{
@@ -107,6 +109,8 @@ is_first_spawn()
 
 LateGameKick()
 {
+	self endon("disconnect");
+	
 
 	if(!level.intermission)
 	{
@@ -123,6 +127,7 @@ LateGameKick()
 			}
 			else
 			{
+				wait 5;
 				kick(self getentitynumber());
 			}
 
@@ -162,6 +167,7 @@ spawnIfRoundOne() //spawn player
 
 pregame_hud() //checked matches bo3 _globallogic.gsc within reason
 {
+	level endon("end_game");
 	flag_wait( "initial_blackscreen_passed" );
 	visionSetNaked( "mpIntro" );
 	matchStartText = createServerFontString( "objective", 1.5 );
@@ -213,6 +219,7 @@ pregame_hud() //checked matches bo3 _globallogic.gsc within reason
 
 onallplayersready() //checked changed to match cerberus output
 {
+	level endon("end_game");
 	players = get_players();
 	while ( players.size == 0 )
 	{
@@ -250,8 +257,9 @@ onallplayersready() //checked changed to match cerberus output
 }
 start_zombie_logic_in_x_sec( seconds ) //checked matches cerberus output
 {
+	level endon("end_game");
 	flag_clear( "spawn_zombies" );
-	iprintln("Starting Zombie Logic in " + seconds + " seconds");
+	//iprintln("Starting Zombie Logic in " + seconds + " seconds");
 
 	timeout = 0;
 	players = get_players();
