@@ -1,18 +1,18 @@
 Gauntlet challenge list
 ---challenges---
 Share the Health – Kill Enemies to Regenerate Depleting Health
-Tower Defense– Moving Causes Damage
+Tower Defense– Moving Causes Damage : ADDED
 Eat and Run – All Enemies are Sprinting
 Bursting With Excitement – Players Can Only Use <weapon>
 Brittle – Complete the Round with a Limited Number of Hits Across All Players
 Bear A Grudge – Hunt down and Open the Mystery Box 6 Times this Round (Firesale Disabled)
-No Gen – No Health Regeneration
+No Gen – No Health Regeneration : ADDED
 Anywhere but WTF? – Players Randomly Teleport. Complete the Round Under the Time Limit
-Make It Rain – Take Damage While you Have Over 5000 Points
+Make It Rain – Take Damage While you Have Over 5000 Points : ADDED
 Shock and Awe – Get 55 Trap Kills and Survive 5:55
 Walled In – Make 5 Unique Wall Buys
 CQZ – Zombies Can Only Be Damaged in Close Quarters
-Double Trouble – Enemies do Double Damage
+Double Trouble – Enemies do Double Damage : ADDED
 Conference Call – Defend the Conference Room 
 Hat Trick – Kill Zombies with 3 Unique Weapons
 Piss Around – Use Unpacked Pistols Only
@@ -32,7 +32,6 @@ Shopaholic – Buy Something Every 20 Seconds
 Spartoi Scramble –No Headshot Kills Allowed
 Stop Drop and Roll – Go Prone to Stop Random Damage
 Blindsided – Players are Randomly Blinded
-Make It Rain – Take Damage If You Have Over 5000 Points
 Trial of the Gods – Survive the Round
 Run Away! Run Away! – Kill All Zombies within the Time Limit. Zombies Will Run Away From Players
 Shots! Shots! Shots! – Weapon Fire Drains Points
@@ -56,7 +55,7 @@ Mystery Shopper - Obtain a Weapon From the Mystery Box.
 Door Man - Open all Doors in the Map.
 Crawling With Zombies - Survive a Wave of Crawling Dead.
 Perk Allergy - Complete the Round with Zero Perks.
-Head Games - Kill Zombies with Headshots Only.
+Head Games - Kill Zombies with Headshots Only. : ADDED
 Powerless - Avoid All Powerups.
 Missing the Point(s) - Damage to Players Causes Points Drain.
 Press Start - Reset To Your Starting Weapon.
