@@ -12,18 +12,24 @@
 main()
 {
     replacements();
+
 }
 
 init()
 {
+	level thread pregame_hud();
     initPlayerConnectionArrays();
-    onplayerconnect_callback(::player_connected());
+    onplayerconnect_callback(::onPlayerConnect());
+
 }
 
 
 replacements()
 {
-    replacefunc(maps/mp/zombies/_zm::onallplayersready, ::onallplayersready);
+    // replacefunc(maps/mp/zombies/_zm::onallplayersready, ::onallplayersready);
+	// replacefunc(maps/mp/zombies/_zm::start_zombie_logic_in_x_sec, ::start_zombie_logic_in_x_sec);
+
+
 
 }
 onPlayerConnect()
@@ -55,60 +61,6 @@ onPlayerSpawned()
 
 }
 
-onallplayersready() //checked changed to match cerberus output
-{
-	players = get_players();
-	while ( players.size == 0 )
-	{
-		players = get_players();
-		wait 0.1;
-	}
-    player_count_actual = 0;
-    while ( getnumconnectedplayers() < getnumexpectedplayers() || player_count_actual != getnumexpectedplayers() )
-    {
-        players = get_players();
-        player_count_actual = 0;
-        i = 0;
-        while ( i < players.size )
-        {
-            players[ i ] freezecontrols( 1 );
-            if ( players[ i ].sessionstate == "playing" )
-            {
-                player_count_actual++;
-            }
-            i++;
-        }   
-        wait 0.1;
-    }
-	setinitialplayersconnected(); 
-	players = get_players();
-	if ( players.size == 1 && getDvarInt( "scr_zm_enable_bots" ) == 1 )
-	{
-		level thread add_bots();
-		flag_set( "initial_players_connected" );
-	}
-	else
-	{
-		players = get_players();
-		if ( players.size == 1 )
-		{
-			flag_set( "solo_game" );
-			level.solo_lives_given = 0;
-			foreach ( player in players )
-			{
-				player.lives = 0;
-			}
-			level set_default_laststand_pistol( 1 );
-		}
-		flag_set( "initial_players_connected" );
-		while ( !aretexturesloaded() )
-		{
-			wait 0.05;
-		}
-		thread start_zombie_logic_in_x_sec( 3 );
-	}
-	fade_out_intro_screen_zm( 5, 1.5, 1 );
-}
 
 
 initPlayerConnectionArrays()
@@ -205,3 +157,61 @@ spawnIfRoundOne() //spawn player
 	}
 
 }
+
+
+
+pregame_hud() //checked matches bo3 _globallogic.gsc within reason
+{
+	flag_wait( "initial_blackscreen_passed" );
+	visionSetNaked( "mpIntro" );
+	matchStartText = createServerFontString( "objective", 1.5 );
+	matchStartText setPoint( "CENTER", "CENTER", 0, -40 );
+	matchStartText.sort = 1001;
+	matchStartText.label = &"Waiting for 4 Players to Begin";
+	matchStartText.foreground = false;
+	matchStartText.hidewheninmenu = true;
+	matchStartText.alpha = 1;
+	flag_wait( "player_quota" );
+	matchStartText.label = game[ "strings" ][ "match_starting_in" ];
+	matchStartTimer = createServerFontString( "objective", 2.2 );
+	matchStartTimer setPoint( "CENTER", "CENTER", 0, 0 );
+	matchStartTimer.sort = 1001;
+	matchStartTimer.color = ( 1, 1, 0 );
+	matchStartTimer.foreground = false;
+	matchStartTimer.hidewheninmenu = true;
+	matchStartTimer maps\mp\gametypes_zm\_hud::fontPulseInit();
+	countTime = 5;
+	if ( countTime >= 2 )
+	{
+		while ( countTime > 0 )
+		{
+			matchStartTimer setValue( countTime );
+			matchStartTimer thread maps\mp\gametypes_zm\_hud::fontPulse( level );
+			if ( countTime == 2 )
+			{
+				visionSetNaked( GetDvar( "mapname" ), 3.0 );
+			}
+			countTime--;
+			wait 1;
+		}
+	}
+	else
+	{
+		visionSetNaked( GetDvar( "mapname" ), 1.0 );
+	}
+	matchStartTimer destroyElem();
+	matchStartText destroyElem();
+}
+
+
+
+
+
+
+
+//////////Replaced functions start//////////
+
+
+
+
+//////////Replaced functions end//////////
