@@ -17,6 +17,7 @@ main()
 
 init()
 {
+	flag_init( "player_quota" );
 	level thread pregame_hud();
     initPlayerConnectionArrays();
     onplayerconnect_callback(::onPlayerConnect());
@@ -168,6 +169,7 @@ spawnIfRoundOne() //spawn player
 pregame_hud() //checked matches bo3 _globallogic.gsc within reason
 {
 	level endon("end_game");
+
 	flag_wait( "initial_blackscreen_passed" );
 	visionSetNaked( "mpIntro" );
 	matchStartText = createServerFontString( "objective", 1.5 );

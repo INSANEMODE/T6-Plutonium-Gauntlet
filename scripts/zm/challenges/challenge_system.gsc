@@ -1,6 +1,14 @@
+#include maps/mp/zombies/_zm_game_module;
 
 
-add_challenge( screen_name, func )
+init()
+{
+	add_challenge("Test", "This is a test challenge", ::testvoid );
+	add_challenge("Test 2", "This is a test challenge 2", ::testvoid );
+	level thread challenge_manager();
+
+}
+add_challenge( screen_name, descr, func )
 {
 	if ( !isDefined( level.gauntlet_challenges ) )
 	{
@@ -8,6 +16,7 @@ add_challenge( screen_name, func )
 	}
 	level.gauntlet_challenges[ level.gauntlet_challenges.size ] = spawnStruct();
 	level.gauntlet_challenges[ level.gauntlet_challenges.size - 1 ].name = screen_name;
+	level.gauntlet_challenges[ level.gauntlet_challenges.size - 1 ].description = descr;
 	level.gauntlet_challenges[ level.gauntlet_challenges.size - 1 ].func = func;
 }
 
@@ -35,4 +44,8 @@ round_restart()
 	zombie_goto_round( level.round_number );
 	level thread maps/mp/zombies/_zm::round_think( 1 );
 	level thread [[ level.gauntlet_challenges[ level.gauntlet_challenge_index ].func ]]();
+}
+
+testvoid()
+{
 }
