@@ -40,7 +40,7 @@ onPlayerConnect()
     self.sessionstate = "spectator";
     self is_first_spawn();
     self thread onPlayerSpawned();
-    self spawnIfRoundOne();
+    self spawnIfFirstSpawn();
 	self thread Lategamekick();
 
 }
@@ -139,7 +139,7 @@ LateGameKick()
 	}
 }
 
-spawnIfRoundOne() //spawn player
+spawnIfFirstSpawn()
 {
 	level endon( "end_game" );
 	self endon( "disconnect" );
@@ -165,8 +165,8 @@ spawnIfRoundOne() //spawn player
 }
 
 
-
-pregame_hud() //checked matches bo3 _globallogic.gsc within reason
+/// Warning: this function does not take string limits into account while using settext()
+pregame_hud() //checked matches bo3 _globallogic.gsc within reason   
 {
 	level endon("end_game");
 
@@ -176,13 +176,13 @@ pregame_hud() //checked matches bo3 _globallogic.gsc within reason
 	matchStartText setPoint( "CENTER", "CENTER", 0, -40 );
 	matchStartText.sort = 1001;
 	matchStartText setText(&"MP_WAITING_FOR_X_PLAYERS");
-	//matchStartText.label = &"Waiting for 4 Players to Begin";
+
 	matchStartText.foreground = false;
 	matchStartText.hidewheninmenu = true;
 	matchStartText.alpha = 1;
 
 	pregameplayercount = createserverfontstring( "objective", 2.2 );
-	//level.pregameplayercount setparent(matchStartText);
+
 	pregameplayercount setPoint( "CENTER", "CENTER", -7, -40 );
 	pregameplayercount.sort = 1001;
 	pregameplayercount.foreground = 0;
@@ -193,10 +193,9 @@ pregame_hud() //checked matches bo3 _globallogic.gsc within reason
 	pregameplayercount maps\mp\gametypes_zm\_hud::fontpulseinit();
 	oldcount = -1;
 	minplayers = 4;
-	//while(is_false(quota) || !isDefined(quota))
+
 	while(is_false(flag( "player_quota" )))
 	{
-		//quota = ;
 		wait( 1 );
 		
 		cur_playercount = getPlayers().size;
@@ -214,7 +213,6 @@ pregame_hud() //checked matches bo3 _globallogic.gsc within reason
 		}
 	}
 	pregameplayercount settext( "" );
-	//flag_wait( "player_quota" );
 	matchStartText settext( game[ "strings" ][ "match_starting_in" ]);
 	matchStartTimer = createServerFontString( "objective", 2.2 );
 	matchStartTimer setPoint( "CENTER", "CENTER", 0, 0 );
@@ -297,7 +295,6 @@ start_zombie_logic_in_x_sec( seconds ) //checked matches cerberus output
 {
 	level endon("end_game");
 	flag_clear( "spawn_zombies" );
-	//iprintln("Starting Zombie Logic in " + seconds + " seconds");
 
 	timeout = 0;
 	players = get_players();

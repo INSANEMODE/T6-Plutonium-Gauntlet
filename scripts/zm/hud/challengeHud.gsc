@@ -59,8 +59,8 @@ challengeHudInit()
 
 
 }
-
-ChallengeHudUpdate()  //warning, this does not take string overflow into account caused by setText()
+/// Warning: this function does not take string limits into account while using settext()
+ChallengeHudUpdate()  
 {
 	level endon("end_game");
 	level thread ChallengeHudDestruction();
