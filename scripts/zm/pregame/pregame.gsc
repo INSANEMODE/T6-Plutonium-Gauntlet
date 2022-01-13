@@ -175,12 +175,47 @@ pregame_hud() //checked matches bo3 _globallogic.gsc within reason
 	matchStartText = createServerFontString( "objective", 1.5 );
 	matchStartText setPoint( "CENTER", "CENTER", 0, -40 );
 	matchStartText.sort = 1001;
-	matchStartText.label = &"Waiting for 4 Players to Begin";
+	matchStartText setText(&"MP_WAITING_FOR_X_PLAYERS");
+	//matchStartText.label = &"Waiting for 4 Players to Begin";
 	matchStartText.foreground = false;
 	matchStartText.hidewheninmenu = true;
 	matchStartText.alpha = 1;
-	flag_wait( "player_quota" );
-	matchStartText.label = game[ "strings" ][ "match_starting_in" ];
+
+	pregameplayercount = createserverfontstring( "objective", 2.2 );
+	//level.pregameplayercount setparent(matchStartText);
+	pregameplayercount setPoint( "CENTER", "CENTER", -7, -40 );
+	pregameplayercount.sort = 1001;
+	pregameplayercount.foreground = 0;
+	pregameplayercount.hidewheninmenu = 1;
+	pregameplayercount.archived = 1;
+	pregameplayercount.alpha = 1;
+	pregameplayercount.color = ( 1, 1, 0 );
+	pregameplayercount maps\mp\gametypes_zm\_hud::fontpulseinit();
+	oldcount = -1;
+	minplayers = 4;
+	//while(is_false(quota) || !isDefined(quota))
+	while(is_false(flag( "player_quota" )))
+	{
+		//quota = ;
+		wait( 1 );
+		
+		cur_playercount = getPlayers().size;
+		amount_needed = minplayers - cur_playercount;
+		if ( amount_needed <= 0 )
+		{
+			break;
+		}
+
+		if ( oldcount != amount_needed )
+		{
+			pregamePlayerCount setValue( amount_needed );
+			pregamePlayerCount thread maps\mp\gametypes_zm\_hud::fontPulse( level );
+			oldcount = amount_needed;
+		}
+	}
+	pregameplayercount settext( "" );
+	//flag_wait( "player_quota" );
+	matchStartText settext( game[ "strings" ][ "match_starting_in" ]);
 	matchStartTimer = createServerFontString( "objective", 2.2 );
 	matchStartTimer setPoint( "CENTER", "CENTER", 0, 0 );
 	matchStartTimer.sort = 1001;
@@ -209,6 +244,7 @@ pregame_hud() //checked matches bo3 _globallogic.gsc within reason
 	}
 	matchStartTimer destroyElem();
 	matchStartText destroyElem();
+	pregameplayercount destroyElem();
 }
 
 
